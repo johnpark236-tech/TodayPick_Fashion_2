@@ -1,0 +1,7 @@
+{
+  "name": "TodayPick",
+  "description": "오늘 뭐 입지? 계절과 연령, 스타일에 맞는 오늘의 코디를 추천하는 심리학 기반 스마트 패션 큐레이션 및 UX 학습 플랫폼",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
