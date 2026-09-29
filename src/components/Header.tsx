@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Clock, Menu } from 'lucide-react';
+import { Sparkles, Clock, Menu, Smartphone, BookOpen } from 'lucide-react';
 import { getGreetingByTime } from '../data/outfits';
 
 interface HeaderProps {
@@ -12,6 +12,9 @@ interface HeaderProps {
   onToggleLearningMode: () => void;
   isLearningModeOpen: boolean;
 }
+
+const APP_URL = 'https://manus.im/app-preview/jZeN2r5fMNSRyTzWZQKj4c?sessionId=HLNaZcXocOlJM5qsjqzgfA';
+const BLOG_URL = 'https://todaypick-mannal.tistory.com/';
 
 export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
   const { greeting } = getGreetingByTime();
@@ -35,7 +38,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileMenu }) => {
           <Clock className="w-3.5 h-3.5 text-violet-500" />
           <span>{greeting}, 오늘의 날씨와 일정에 맞는 룩을 추천해드려요</span>
         </div>
-        <div className="w-10 sm:w-24" aria-hidden="true" />
+        <nav className="hidden md:flex items-center gap-2" aria-label="TodayPick 서비스 이동">
+          <a
+            href={BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-2 rounded-xl text-xs font-bold text-slate-600 border border-slate-200 bg-white hover:border-violet-300 hover:text-violet-700 transition-colors inline-flex items-center gap-1.5"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            스타일 매거진
+          </a>
+          <a
+            href={APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-2 rounded-xl text-xs font-bold text-white bg-violet-600 hover:bg-violet-700 shadow-sm transition-colors inline-flex items-center gap-1.5"
+          >
+            <Smartphone className="w-3.5 h-3.5" />
+            앱 체험
+          </a>
+        </nav>
       </div>
     </header>
   );
