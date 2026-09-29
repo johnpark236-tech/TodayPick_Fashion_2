@@ -12,13 +12,19 @@ import {
   RefreshCw,
   Utensils,
   Compass,
-  Check
+  Check,
+  Smartphone,
+  BookOpen,
+  ExternalLink
 } from 'lucide-react';
 
 interface LandingSectionsProps {
   onScrollToTop: () => void;
   onVisitorCountClick?: () => void;
 }
+
+const APP_URL = 'https://manus.im/app-preview/jZeN2r5fMNSRyTzWZQKj4c?sessionId=HLNaZcXocOlJM5qsjqzgfA';
+const BLOG_URL = 'https://todaypick-mannal.tistory.com/';
 
 export const LandingSections: React.FC<LandingSectionsProps> = ({
   onScrollToTop,
@@ -275,18 +281,45 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({
             로그인도 결제도 필요 없습니다. 바로 나만의 오늘의 코디를 만나보세요.
           </p>
 
-          <button
-            onClick={onScrollToTop}
-            className="px-8 py-3.5 rounded-2xl bg-white text-violet-700 font-extrabold text-sm shadow-lg hover:bg-violet-50 active:scale-95 transition-all inline-flex items-center gap-2"
-          >
-            <span>오늘 코디 보기</span>
-            <ArrowUp className="w-4 h-4" />
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={onScrollToTop}
+              className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white text-violet-700 font-extrabold text-sm shadow-lg hover:bg-violet-50 active:scale-95 transition-all inline-flex items-center justify-center gap-2"
+            >
+              <span>오늘 코디 보기</span>
+              <ArrowUp className="w-4 h-4" />
+            </button>
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-slate-950/25 border border-white/30 text-white font-extrabold text-sm hover:bg-slate-950/40 active:scale-95 transition-all inline-flex items-center justify-center gap-2"
+            >
+              <Smartphone className="w-4 h-4" />
+              <span>TodayPick 앱 체험하기</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href={BLOG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white/10 border border-white/30 text-white font-extrabold text-sm hover:bg-white/20 active:scale-95 transition-all inline-flex items-center justify-center gap-2"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>스타일 매거진</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
       </div>
 
       {/* Footer */}
       <footer className="w-full border-t border-slate-200/80 pt-6 pb-10 text-center text-xs text-slate-400">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-3 font-semibold">
+          <button onClick={onScrollToTop} className="text-slate-600 hover:text-violet-700 transition-colors">TodayPick 홈</button>
+          <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-violet-700 transition-colors">앱 체험</a>
+          <a href={BLOG_URL} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-violet-700 transition-colors">스타일 매거진</a>
+        </div>
         <p className="font-semibold text-slate-600 mb-1">TodayPick — 스마트 패션 큐레이션 &amp; UX 학습 플랫폼</p>
         <p>© 2026 TodayPick. All rights reserved. Designed with behavioral psychology models.</p>
       </footer>
